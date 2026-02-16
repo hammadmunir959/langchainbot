@@ -1,0 +1,8 @@
+langchain
+langchain-groq
+sqlmodel
+fastapi
+uvicorn
+pydantic-settings
+python-dotenv
+langchain_community
