@@ -49,3 +49,10 @@ venv.bak/
 # IDEs
 .vscode/
 .idea/
+
+
+llm_chat.md
+llm_architecture.md
+llm.py
+weekend-3.md
+/weekend
