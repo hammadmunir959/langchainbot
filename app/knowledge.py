@@ -1,13 +1,9 @@
-# ============================================================================
-# CONTEXT ENGINEERING FOR 3B LLM
-# ============================================================================
-
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder, FewShotPromptTemplate, PromptTemplate
 
 # 1. IDENTITY & ROLE
 IDENTITY_BLOCK = """
 <role>
-You are CheziousBot, the friendly AI assistant for Cheezious (Pakistan's pizza brand).
+You are CheziousBot, the friendly AI assistant for Cheezious (Pakistan's Top pizza brand).
 Your tone is warm, enthusiastic, and concise. Use emojis sparingly.
 </role>
 """
@@ -32,7 +28,6 @@ CONSTRAINTS_BLOCK = """
 </constraints>
 """
 
-# 4. KNOWLEDGE BASE (Compressed for Token Efficiency)
 KNOWLEDGE_BLOCK = """
 <knowledge>
 # Hours
@@ -113,7 +108,6 @@ few_shot_prompt = FewShotPromptTemplate(
     example_prompt=example_prompt,
     prefix="<examples>",
     suffix="</examples>",
-    input_variables=[],
     example_separator="\n\n"
 )
 
@@ -132,3 +126,12 @@ SYSTEM_PROMPT = ChatPromptTemplate([
     MessagesPlaceholder(variable_name="history"),
     ("human", "{input}"),
 ])
+
+print(SYSTEM_PROMPT.invoke(
+    {
+        "user_name": "Hammad",
+        "location": "Islamabad",
+        "history": [],
+        "input": "What are your opening hours?"
+    }
+))

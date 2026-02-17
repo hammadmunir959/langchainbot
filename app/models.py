@@ -10,7 +10,7 @@ class User(SQLModel, table=True):
 
 class UserSession(SQLModel, table=True):
     id: int = SQLField(primary_key=True)
-    session_id: UUID = SQLField(default_factory=uuid4, unique=True)
+    session_id: UUID = SQLField(default_factory=uuid4)
     user_id: int = SQLField(foreign_key="user.id")
     user: User = Relationship(back_populates="sessions")
 
